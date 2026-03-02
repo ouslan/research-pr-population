@@ -9,6 +9,8 @@ dependencies = [
     "arviz>=1.0.0",
     "bambi>=0.16.0",
     "censusforge>=0.6.1",
+    "geopandas>=1.1.2",
+    "jp-tools>=0.5.8",
     "polars>=1.38.1",
     "pymc>=5.28.0",
 ]
