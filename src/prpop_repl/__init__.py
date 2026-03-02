@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from research-pr-population!")
+from .utils import DataUtils

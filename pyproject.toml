@@ -12,6 +12,7 @@ dependencies = [
     "geopandas>=1.1.2",
     "jp-tools>=0.5.8",
     "polars>=1.38.1",
+    "pyarrow>=23.0.1",
     "pymc>=5.28.0",
 ]
 
