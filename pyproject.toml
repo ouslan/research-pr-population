@@ -4,16 +4,15 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [{ name = "Alejandro Ouslan", email = "alejandro.ouslan@upr.edu" }]
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
-    "arviz>=1.0.0",
-    "bambi>=0.16.0",
+    "arviz[all]>=0.23.4",
+    "bambi>=0.17.2",
     "censusforge>=0.6.1",
     "geopandas>=1.1.2",
-    "jp-tools>=0.5.8",
     "polars>=1.38.1",
     "pyarrow>=23.0.1",
-    "pymc>=5.28.0",
+    "pymc>=5.28.1",
 ]
 
 [project.scripts]
