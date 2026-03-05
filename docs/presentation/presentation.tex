@@ -1,6 +1,6 @@
 \documentclass[11pt]{beamer}
 
-\graphicspath{{../assets/}{../}{./}}
+\graphicspath{{assets/}{../}{./}}
 
 \usepackage{booktabs}
 \usepackage{multicol}
@@ -65,21 +65,15 @@
 % TITLE INFORMATION
 %------------------------------------------------
 
-\title{Modeling Spatial Dependence:\\
-A Simulation-Based Comparison of Parametric\\
-and Semi-Parametric Approaches}
+\title{ Estimation of Change in \\ Population of municipalities in PR}
 
 \author[Ouslan]{\small{
-Alejandro M. Ouslan}\\
-{\tiny
-Supervisors: Dr. Raúl Macchiavelli, Dra. Santana,\\
-Dr. Hernández, Dr. Rivera Santiago}
-}
+Alejandro M. Ouslan \& Tatiana Crespo}}
 
 \institute[UPRM]{University of Puerto Rico, Mayagüez}
 \titlegraphic{\includegraphics[width=2cm]{UPR.png}}
 
-\date[\today]{\small{Seminario Interuniversitario de Investigación en Ciencias Matemáticas}\\
+\date[\today]{\small{[ESMA 6835]: Inferencia Bayesian}\\
 \vspace{2mm}
 \footnotesize{\today}}
 
@@ -144,7 +138,7 @@ Dr. Hernández, Dr. Rivera Santiago}
 \section{Introduction}
 %------------------------------------------------
 
-\begin{frame}{Why Spatial Dependence Matters}
+\begin{frame}{Introduction}
 
 	\begin{itemize}
 		\item Regional data often exhibit spatial dependence.
@@ -156,165 +150,126 @@ Dr. Hernández, Dr. Rivera Santiago}
 \end{frame}
 
 %------------------------------------------------
-\section{Production Function}
+\section{Methodology}
 %------------------------------------------------
 
-\begin{frame}{Production Function}
-
-	\[
-		\begin{split}
-			Y       & = A K^\alpha L^\beta                                                             \\
-			\log(Y) & = \log(A) + \alpha \log(K) + \beta \log(L) +\epsilon ; \epsilon \sim N(0,\sigma)
-		\end{split}
-	\]
+\begin{frame}{Methodology}
 
 	\begin{itemize}
-		\item $Y$ is the total output (real GDP) produced.
-		\item $A$ is total factor productivity (TFP), capturing the efficiency with which inputs are used.
-		\item $K$ is the quantity of physical capital used in production.
-		\item $L$ is the quantity of labor employed.
-	\end{itemize}
-
-\end{frame}
-
-%------------------------------------------------
-\section{Production Function Cont.}
-%------------------------------------------------
-
-\begin{frame}{Production Function}
-
-	\[
-		\begin{split}
-			Y       & = A K^\alpha L^\beta                                                             \\
-			\log(Y) & = \log(A) + \alpha \log(K) + \beta \log(L) +\epsilon ; \epsilon \sim N(0,\sigma)
-		\end{split}
-	\]
-
-	\begin{itemize}
-		\item $\alpha$ is the output elasticity of capital
-		\item $\beta$ is the output elasticity of labor
-		\item $i$ municipalities id
-		\item $t$ time period
+		\item Regional data often exhibit spatial dependence.
+		\item Example: Puerto Rico municipalities.
+		\item Productivity in one region may depend on neighboring regions.
+		\item Violates classical i.i.d. assumption.
 	\end{itemize}
 
 \end{frame}
 
 
 %------------------------------------------------
-\section{Parametric Spatial Models}
+\section{Resultados}
 %------------------------------------------------
 
-\begin{frame}{Spatial Autoregressive (SAR) Model}
-
-	\[
-		y = \rho Wy + X\beta + \varepsilon
-	\]
+\begin{frame}{Resultados}
 
 	\begin{itemize}
-		\item $\rho$ measures spatial dependence.
-		\item $W$ defines neighborhood structure.
-		\item Sensitive to correct specification of $W$.
+		\item Regional data often exhibit spatial dependence.
+		\item Example: Puerto Rico municipalities.
+		\item Productivity in one region may depend on neighboring regions.
+		\item Violates classical i.i.d. assumption.
 	\end{itemize}
 
 \end{frame}
 
 %------------------------------------------------
-\section{The Spatial Weights Matrix}
+\subsection{Densities}
 %------------------------------------------------
 
-\begin{frame}{Defining $W$: The Core Challenge}
+\begin{frame}{Results}
 
 	\begin{itemize}
-		\item $W$ is assumed known in theory.
-		\item In practice, it must be chosen.
-		\item No universally accepted selection rule.
-		\item Misspecification leads to biased estimates.
+		\item Regional data often exhibit spatial dependence.
+		\item Example: Puerto Rico municipalities.
+		\item Productivity in one region may depend on neighboring regions.
+		\item Violates classical i.i.d. assumption.
 	\end{itemize}
 
 \end{frame}
 
 %------------------------------------------------
-\section{Example of the Weights Matrix (Queen)}
+\subsection{Credibility Interval}
 %------------------------------------------------
 
-\begin{frame}{Example of the Weights Matrix (Queen)}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.64\textwidth]{assets/queens.png}
-		\caption{Queen Neighbors Model}
-	\end{figure}
-\end{frame}
-
-%------------------------------------------------
-\section{Example of the Weights Matrix (KNN)}
-%------------------------------------------------
-
-\begin{frame}{Example of the Weights Matrix (KNN)}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.64\textwidth]{assets/kmodel.png}
-		\caption{K-Nearest Neighbors (KNN) Model}
-	\end{figure}
-\end{frame}
-
-%------------------------------------------------
-\section{Semi-Parametric Alternative}
-%------------------------------------------------
-
-\begin{frame}{Tensor Product Spatial Smoother}
-
-	\[
-		\log(Y_{it}) =
-		\alpha + \beta_1 \log(K_{it}) + \beta_2 \log(L_{it})
-		+ f(\text{lat}_i,\text{lon}_i) + \varepsilon_{it}
-	\]
-
-	\begin{block}{Key Idea}
-		No need to specify $W$.
-		Spatial effects captured flexibly using splines.
-	\end{block}
-
-\end{frame}
-
-%------------------------------------------------
-\section{Simulation Study}
-%------------------------------------------------
-
-\begin{frame}{Simulation Results (1000 Runs)}
-
-	\begin{table}
-		\centering
-		\small
-		\begin{tabular}{lcccc}
-			\toprule
-			Variable  & Rook   & Queen  & Tensor & OLS    \\
-			\midrule
-			Intercept & 3973.3 & 0.40   & 8252.6 & 7177.3 \\
-			$X_1$     & 0.74   & 0.0032 & 0.21   & 1.22   \\
-			$X_2$     & 0.90   & 0.0032 & 0.26   & 1.57   \\
-			$X_3$     & 1.04   & 0.0031 & 0.27   & 1.92   \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
-
-	\textbf{Finding:}
-	When $W$ is misspecified, the tensor approach is substantially more robust.
-
-\end{frame}
-
-%------------------------------------------------
-\section{Conclusions}
-%------------------------------------------------
-
-\begin{frame}{Main Conclusions}
+\begin{frame}{Credibility interval}
 
 	\begin{itemize}
-		\item Parametric models are highly sensitive to $W$.
-		\item Misspecification leads to large estimation errors.
-		\item Semi-parametric tensor approach provides robust spatial control.
-		\item Useful in contexts like Puerto Rico where $W$ is uncertain.
+		\item Regional data often exhibit spatial dependence.
+		\item Example: Puerto Rico municipalities.
+		\item Productivity in one region may depend on neighboring regions.
+		\item Violates classical i.i.d. assumption.
 	\end{itemize}
 
 \end{frame}
+
+%------------------------------------------------
+\subsection{Confidance Interval}
+%------------------------------------------------
+
+\begin{frame}{Confidance Interval}
+
+	\begin{itemize}
+		\item Regional data often exhibit spatial dependence.
+		\item Example: Puerto Rico municipalities.
+		\item Productivity in one region may depend on neighboring regions.
+		\item Violates classical i.i.d. assumption.
+	\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+\subsection{Distribution}
+%------------------------------------------------
+
+\begin{frame}{Confidance Interval}
+
+	\begin{itemize}
+		\item Regional data often exhibit spatial dependence.
+		\item Example: Puerto Rico municipalities.
+		\item Productivity in one region may depend on neighboring regions.
+		\item Violates classical i.i.d. assumption.
+	\end{itemize}
+
+\end{frame}
+
+
+%------------------------------------------------
+\section{Predicciones}
+%------------------------------------------------
+
+\begin{frame}{Confidance Interval}
+
+	\begin{itemize}
+		\item Regional data often exhibit spatial dependence.
+		\item Example: Puerto Rico municipalities.
+		\item Productivity in one region may depend on neighboring regions.
+		\item Violates classical i.i.d. assumption.
+	\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+\section{Conclutions}
+%------------------------------------------------
+
+\begin{frame}{Confidance Interval}
+
+	\begin{itemize}
+		\item Regional data often exhibit spatial dependence.
+		\item Example: Puerto Rico municipalities.
+		\item Productivity in one region may depend on neighboring regions.
+		\item Violates classical i.i.d. assumption.
+	\end{itemize}
+
+\end{frame}
+
 
 \end{document}
