@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage[inline,shortlabels]{enumitem}
+\begin{document}
+
+% Cover Page
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+
+	\includegraphics[width=0.5\textwidth]{assets/logo.png}\par\vspace{1cm} % Adjust the width as needed
+
+	\Huge
+	\textbf{Estimation of Change in Population of Municipalities in PR}
+
+	\vspace{0.5cm}
+	\LARGE
+	[ESMA 6835]: Bayesian Inference
+
+	\vspace{1.5cm}
+
+	\textbf{Alejandro M. Ouslan \& Tatiana Crespo}
+
+	\vfill
+
+	\Large
+
+
+	\vspace{0.8cm}
+
+	\Large
+	University of Puerto Rico, Mayagüez \\
+	{\small \today}
+
+\end{titlepage}
+
+\newpage
+
+\begin{abstract}
+	This research aims to compare the performance of spatial regression models that rely on predefined
+	weight matrices with that of semi-parametric regression models using spatial smoothers. This research will be
+	using
+\end{abstract}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+%------------------------------------------------
+\section{Introduction}
+%------------------------------------------------
+
+Change in demographics are highly studied topic and is of great interest to governments.
+Knowing the demographics characteristics are of special interest to regional governments
+like the municipalities in Puerto rico. Understanding the how the population will change
+in the following years are the basis of many infra stare projects to invest in a growing
+population or a population that is decreasing or aging.
+
+
+%------------------------------------------------
+\section{Methodology}
+%------------------------------------------------
+This research will be using data form the American Community Survey 5 estimates (ACS)
+by the U.S Census Bureau. This data encompasses population estimates from 2011 to 2023
+for all 78 municipalities.
+
+
+%------------------------------------------------
+\section{Resultados}
+%------------------------------------------------
+
+
+\begin{itemize}
+	\item Regional data often exhibit spatial dependence.
+	\item Example: Puerto Rico municipalities.
+	\item Productivity in one region may depend on neighboring regions.
+	\item Violates classical i.i.d. assumption.
+\end{itemize}
+
+
+%------------------------------------------------
+\subsection{Densities}
+%------------------------------------------------
+
+
+\begin{itemize}
+	\item Regional data often exhibit spatial dependence.
+	\item Example: Puerto Rico municipalities.
+	\item Productivity in one region may depend on neighboring regions.
+	\item Violates classical i.i.d. assumption.
+\end{itemize}
+
+
+%------------------------------------------------
+\subsection{Credibility Interval}
+%------------------------------------------------
+
+
+\begin{itemize}
+	\item Regional data often exhibit spatial dependence.
+	\item Example: Puerto Rico municipalities.
+	\item Productivity in one region may depend on neighboring regions.
+	\item Violates classical i.i.d. assumption.
+\end{itemize}
+
+
+%------------------------------------------------
+\subsection{Confidence Interval}
+%------------------------------------------------
+
+
+\begin{itemize}
+	\item Regional data often exhibit spatial dependence.
+	\item Example: Puerto Rico municipalities.
+	\item Productivity in one region may depend on neighboring regions.
+	\item Violates classical i.i.d. assumption.
+\end{itemize}
+
+
+%------------------------------------------------
+\subsection{Distribution}
+%------------------------------------------------
+
+
+\begin{itemize}
+	\item Regional data often exhibit spatial dependence.
+	\item Example: Puerto Rico municipalities.
+	\item Productivity in one region may depend on neighboring regions.
+	\item Violates classical i.i.d. assumption.
+\end{itemize}
+
+
+
+%------------------------------------------------
+\section{Predicciones}
+%------------------------------------------------
+
+Due to the lack of significance in the results of the change in time and
+municipality population, no mining full recommendation can be mande on the problem.
+
+
+
+%------------------------------------------------
+\section{Conclusions}
+%------------------------------------------------
+
+The overall results of the simple regression are inconclusive given that year was not significant.
+This lack of statistical significance may be due the limitations of a simple regressions. A major
+componed of this limitations is the violations of the assumption of i.i.d. Population are highly
+correlated to the population of the previous year. It is advice to use a more apropiare model for
+time series like for example ARIMA.
+
+
+\end{document}
