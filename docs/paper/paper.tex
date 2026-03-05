@@ -13,7 +13,7 @@
 	\centering
 	\vspace*{1cm}
 
-	\includegraphics[width=0.5\textwidth]{assets/logo.png}\par\vspace{1cm} % Adjust the width as needed
+	\includegraphics[width=0.5\textwidth]{assets/logo.png}\par\vspace{1cm}
 
 	\Huge
 	\textbf{Estimation of Change in Population of Municipalities in PR}
@@ -30,7 +30,6 @@
 
 	\Large
 
-
 	\vspace{0.8cm}
 
 	\Large
@@ -41,13 +40,6 @@
 
 \newpage
 
-\begin{abstract}
-	This research aims to compare the performance of spatial regression models that rely on predefined
-	weight matrices with that of semi-parametric regression models using spatial smoothers. This research will be
-	using
-\end{abstract}
-
-\newpage
 
 \tableofcontents
 
@@ -57,19 +49,19 @@
 \section{Introduction}
 %------------------------------------------------
 
-Change in demographics are highly studied topic and is of great interest to governments.
-Knowing the demographics characteristics are of special interest to regional governments
-like the municipalities in Puerto rico. Understanding the how the population will change
-in the following years are the basis of many infra stare projects to invest in a growing
-population or a population that is decreasing or aging.
+Changes in demographics are a highly studied topic and are of great interest to governments.
+Understanding demographic characteristics is particularly important for regional governments,
+such as the municipalities in Puerto Rico. Anticipating how the population will change in
+the coming years is fundamental for planning infrastructure projects and public investments,
+especially in areas experiencing population growth, decline, or aging populations.
 
 
 %------------------------------------------------
 \section{Methodology}
 %------------------------------------------------
-This research will be using data form the American Community Survey 5 estimates (ACS)
-by the U.S Census Bureau. This data encompasses population estimates from 2011 to 2023
-for all 78 municipalities.
+This research uses data from the American Community Survey 5-year estimates (ACS)
+produced by the U.S. Census Bureau. The dataset includes population estimates from
+2011 to 2023 for all 78 municipalities in Puerto Rico.
 
 
 %------------------------------------------------
@@ -77,12 +69,6 @@ for all 78 municipalities.
 %------------------------------------------------
 
 
-\begin{itemize}
-	\item Regional data often exhibit spatial dependence.
-	\item Example: Puerto Rico municipalities.
-	\item Productivity in one region may depend on neighboring regions.
-	\item Violates classical i.i.d. assumption.
-\end{itemize}
 
 
 %------------------------------------------------
@@ -90,12 +76,6 @@ for all 78 municipalities.
 %------------------------------------------------
 
 
-\begin{itemize}
-	\item Regional data often exhibit spatial dependence.
-	\item Example: Puerto Rico municipalities.
-	\item Productivity in one region may depend on neighboring regions.
-	\item Violates classical i.i.d. assumption.
-\end{itemize}
 
 
 %------------------------------------------------
@@ -103,25 +83,10 @@ for all 78 municipalities.
 %------------------------------------------------
 
 
-\begin{itemize}
-	\item Regional data often exhibit spatial dependence.
-	\item Example: Puerto Rico municipalities.
-	\item Productivity in one region may depend on neighboring regions.
-	\item Violates classical i.i.d. assumption.
-\end{itemize}
-
-
 %------------------------------------------------
 \subsection{Confidence Interval}
 %------------------------------------------------
 
-
-\begin{itemize}
-	\item Regional data often exhibit spatial dependence.
-	\item Example: Puerto Rico municipalities.
-	\item Productivity in one region may depend on neighboring regions.
-	\item Violates classical i.i.d. assumption.
-\end{itemize}
 
 
 %------------------------------------------------
@@ -129,12 +94,6 @@ for all 78 municipalities.
 %------------------------------------------------
 
 
-\begin{itemize}
-	\item Regional data often exhibit spatial dependence.
-	\item Example: Puerto Rico municipalities.
-	\item Productivity in one region may depend on neighboring regions.
-	\item Violates classical i.i.d. assumption.
-\end{itemize}
 
 
 
@@ -142,8 +101,8 @@ for all 78 municipalities.
 \section{Predicciones}
 %------------------------------------------------
 
-Due to the lack of significance in the results of the change in time and
-municipality population, no mining full recommendation can be mande on the problem.
+Due to the lack of statistical significance in the results regarding changes over time
+in municipal population, no meaningful recommendations can be made regarding the problem.
 
 
 
@@ -151,11 +110,11 @@ municipality population, no mining full recommendation can be mande on the probl
 \section{Conclusions}
 %------------------------------------------------
 
-The overall results of the simple regression are inconclusive given that year was not significant.
-This lack of statistical significance may be due the limitations of a simple regressions. A major
-componed of this limitations is the violations of the assumption of i.i.d. Population are highly
-correlated to the population of the previous year. It is advice to use a more apropiare model for
-time series like for example ARIMA.
-
+The overall results of the simple regression are inconclusive, as the variable representing
+year was not statistically significant. This lack of statistical significance may be due to
+the limitations of simple regression models. A major limitation is the violation of the
+assumption of independence and identical distribution (i.i.d.), since population values are
+highly correlated with those of the previous year. It is advisable to use a more appropriate
+model for time series data, such as an ARIMA model.
 
 \end{document}
