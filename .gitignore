@@ -211,3 +211,13 @@ __marimo__/
 *.txt 
 *.csv
 *.parquet
+
+# Remove Latex stuff
+*.aux
+*.fdb_latexmk
+*.fls 
+*.out
+*.gz
+*.nav
+*.snm
+*.toc
