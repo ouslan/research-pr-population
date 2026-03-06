@@ -117,4 +117,94 @@ assumption of independence and identical distribution (i.i.d.), since population
 highly correlated with those of the previous year. It is advisable to use a more appropriate
 model for time series data, such as an ARIMA model.
 
+
+\section*{Appendix A: Simple regression}
+
+\begin{table}[ht]
+	\centering
+	\caption{OLS Regression Results}
+	\begin{tabular}{lcccccc}
+		\hline
+		\textbf{Variable}    & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{t-Statistic} & \textbf{P-value} & \textbf{95\% CI}    \\
+		\hline
+		Intercept            & 461,000              & 693,000             & 0.666                & 0.506            & [-899,000, 1.82M]   \\
+		Year                 & -210.515             & 343.336             & -0.613               & 0.540            & [-884.247, 463.216] \\
+		\hline
+		\textbf{Model Fit}   &                      &                     &                      &                  &                     \\
+		\hline
+		R-squared            & 0.000                &                     &                      &                  &                     \\
+		Adjusted R-squared   & -0.001               &                     &                      &                  &                     \\
+		F-statistic          & 0.3759               &                     &                      & 0.540            &                     \\
+		Prob (F-statistic)   &                      &                     &                      & 0.540            &                     \\
+		No. Observations     & 1014                 &                     &                      &                  &                     \\
+		\hline
+		\textbf{Diagnostics} &                      &                     &                      &                  &                     \\
+		\hline
+		Omnibus              & 898.513              &                     &                      & 0.000            &                     \\
+		Jarque-Bera          & 22,245.704           &                     &                      & 0.000            &                     \\
+		Skew                 & 4.144                &                     &                      &                  &                     \\
+		Kurtosis             & 24.397               &                     &                      &                  &                     \\
+		Durbin-Watson        & 1.935                &                     &                      &                  &                     \\
+		Condition No.        & 1.09e+06             &                     &                      &                  &                     \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\caption{Bayes simple regression Results (Mean, SD, HDI)}
+	\begin{tabular}{lcccccc}
+		\hline
+		\textbf{Variable} & \textbf{Mean} & \textbf{SD} & \textbf{HDI 3\%} & \textbf{HDI 97\%} \\
+		\hline
+		Intercept         & 479,133.653   & 704,469.055 & -922,695.260     & 1,743,484.519     \\
+		Sigma             & 40,914.524    & 917.309     & 39,261.811       & 42,711.419        \\
+		Year              & -219.481      & 349.280     & -847.946         & 473.013           \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\caption{Bayes simple regression Results (MCSE, ESS, and R-hat)}
+	\begin{tabular}{lccccccccc}
+		\hline
+		\textbf{Variable} & \textbf{MCSE Mean} & \textbf{MCSE SD} & \textbf{ESS Bulk} & \textbf{ESS Tail} & \textbf{R-hat} \\
+		\hline
+		Intercept         & 9,270.616          & 11,465.597       & 5,768.0           & 2,821.0           & 1.0            \\
+		Sigma             & 11.705             & 14.697           & 6,165.0           & 3,085.0           & 1.0            \\
+		Year              & 4.597              & 5.685            & 5,767.0           & 2,821.0           & 1.0            \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{assets/density.png}
+	\caption{Density of simple regression}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{assets/confidence.png}
+	\caption{Confidence interval of Simple regression}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{assets/credibility intervals.png}
+	\caption{Credibility interval of Simple regression}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{assets/trace.png}
+	\caption{Trace graph of simple regression}
+\end{figure}
+
+
+
+
+
 \end{document}
