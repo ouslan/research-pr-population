@@ -5,6 +5,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{amsmath}
 \usepackage{float}
+\usepackage{bookmark}
 \usepackage[inline,shortlabels]{enumitem}
 \begin{document}
 
@@ -204,7 +205,171 @@ model for time series data, such as an ARIMA model.
 \end{figure}
 
 
+\section*{Appendix B: Log regression}
 
+\begin{table}[ht]
+	\centering
+	\caption{OLS Regression Results (Model Fit and Coefficients)}
+	\begin{tabular}{lcccccc}
+		\hline
+		\textbf{Variable}  & \textbf{Coef} & \textbf{Std. Error} & \textbf{t-Statistic} & \textbf{P-value} & \textbf{95\% CI} \\
+		\hline
+		Intercept          & 20.8794       & 13.317              & 1.568                & 0.117            & [-5.254, 47.012] \\
+		Year               & -0.0053       & 0.007               & -0.804               & 0.422            & [-0.018, 0.008]  \\
+		\hline
+		\textbf{Model Fit} &               &                     &                      &                  &                  \\
+		\hline
+		R-squared          & 0.001         &                     &                      &                  &                  \\
+		Adjusted R-squared & -0.000        &                     &                      &                  &                  \\
+		F-statistic        & 0.6461        &                     &                      & 0.422            &                  \\
+		Prob (F-statistic) &               &                     &                      & 0.422            &                  \\
+		No. Observations   & 1014          &                     &                      &                  &                  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\caption{Bayesian Sampling Results (Mean, SD, HDI)}
+	\begin{tabular}{lcccccc}
+		\hline
+		\textbf{Variable} & \textbf{Mean} & \textbf{SD} & \textbf{HDI 3\%} & \textbf{HDI 97\%} \\
+		\hline
+		Intercept         & 20.846        & 13.403      & -4.771           & 46.100            \\
+		Sigma             & 0.788         & 0.018       & 0.756            & 0.822             \\
+		Year              & -0.005        & 0.007       & -0.018           & 0.007             \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[ht]
+	\centering
+	\caption{Bayesian Sampling Results (MCSE, ESS, and R-hat)}
+	\begin{tabular}{lcccccccc}
+		\hline
+		\textbf{Variable} & \textbf{MCSE Mean} & \textbf{MCSE SD} & \textbf{ESS Bulk} & \textbf{ESS Tail} & \textbf{R-hat} \\
+		\hline
+		Intercept         & 0.17               & 0.226            & 6221.0            & 2891.0            & 1.0            \\
+		Sigma             & 0.00               & 0.000            & 6424.0            & 2900.0            & 1.0            \\
+		Year              & 0.00               & 0.000            & 6217.0            & 2865.0            & 1.0            \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{assets/log_density.png}
+	\caption{Density of Log regression}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{assets/log_confidence.png}
+	\caption{Confidence interval of Log regression}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{assets/log_credibility.png}
+	\caption{Credibility interval of Log regression}
+\end{figure}
+
+\section{Appendix C: Log fixed effect}
+
+\begin{table}[ht]
+	\centering
+	\caption{OLS Regression Results (Model Fit and Initial Coefficients)}
+	\begin{tabular}{lcccccc}
+		\hline
+		\textbf{Variable}    & \textbf{Coef} & \textbf{Std. Error} & \textbf{t-Statistic} & \textbf{P-value} & \textbf{95\% CI} \\
+		\hline
+		Intercept            & 20.3180       & 0.517               & 39.291               & 0.000            & [19.303, 21.333] \\
+		C(county)[T.3.0]     & 0.7826        & 0.012               & 65.330               & 0.000            & [0.759, 0.806]   \\
+		C(county)[T.5.0]     & 1.1297        & 0.012               & 94.300               & 0.000            & [1.106, 1.153]   \\
+		C(county)[T.7.0]     & 0.3701        & 0.012               & 30.898               & 0.000            & [0.347, 0.394]   \\
+		C(county)[T.9.0]     & 0.2939        & 0.012               & 24.537               & 0.000            & [0.270, 0.317]   \\
+		C(county)[T.11.0]    & 0.4228        & 0.012               & 35.290               & 0.000            & [0.399, 0.446]   \\
+		\hline
+		\textbf{Model Fit}   &               &                     &                      &                  &                  \\
+		\hline
+		R-squared            & 0.999         &                     &                      &                  &                  \\
+		\textbf{Diagnostics} &               &                     &                      &                  &                  \\
+		\hline
+		AIC                  & -4122         &                     &                      &                  &                  \\
+		BIC                  & -3733         &                     &                      &                  &                  \\
+		Df Residuals         & 935           &                     &                      &                  &                  \\
+		Df Model             & 78            &                     &                      &                  &                  \\
+		Condition No.        & 1.09e+06      &                     &                      &                  &                  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+
+\begin{table}[ht]
+	\centering
+	\caption{Bayesian Fixed Effect Results (Mean, SD, HDI)}
+	\begin{tabular}{lcccccc}
+		\hline
+		\textbf{Variable} & \textbf{Mean} & \textbf{SD} & \textbf{HDI 3\%} & \textbf{HDI 97\%} \\
+		\hline
+		Intercept         & 20.444        & 13.228      & -3.724           & 45.340            \\
+		C(county)         & 0.000         & 0.001       & -0.001           & 0.001             \\
+		Sigma             & 0.788         & 0.017       & 0.755            & 0.821             \\
+		Year              & -0.005        & 0.007       & -0.017           & 0.007             \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[ht]
+	\centering
+	\caption{Bayesian Fixed Effect Results (MCSE, ESS, and R-hat)}
+	\begin{tabular}{lcccccccc}
+		\hline
+		\textbf{Variable} & \textbf{MCSE Mean} & \textbf{MCSE SD} & \textbf{ESS Bulk} & \textbf{ESS Tail} & \textbf{R-hat} \\
+		\hline
+		Intercept         & 0.155              & 0.201            & 7236.0            & 3122.0            & 1.0            \\
+		C(county)         & 0.000              & 0.000            & 6710.0            & 3373.0            & 1.0            \\
+		Sigma             & 0.000              & 0.000            & 7065.0            & 3154.0            & 1.0            \\
+		Year              & 0.000              & 0.000            & 7238.0            & 3049.0            & 1.0            \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[ht]
+	\centering
+	\caption{Bayesian Sampling Results (MCSE, ESS, and R-hat)}
+	\begin{tabular}{lcccccccc}
+		\hline
+		\textbf{Variable} & \textbf{MCSE Mean} & \textbf{MCSE SD} & \textbf{ESS Bulk} & \textbf{ESS Tail} & \textbf{R-hat} \\
+		\hline
+		Intercept         & 0.17               & 0.226            & 6221.0            & 2891.0            & 1.0            \\
+		Sigma             & 0.00               & 0.000            & 6424.0            & 2900.0            & 1.0            \\
+		Year              & 0.00               & 0.000            & 6217.0            & 2865.0            & 1.0            \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{assets/fix_density.png}
+	\caption{Density of fix effect regression}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{assets/fix_confidence.png}
+	\caption{Confidence interval of fix effect regression}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{assets/fix_credibility.png}
+	\caption{Credibility interval of Fix effect regression}
+\end{figure}
 
 
 \end{document}
