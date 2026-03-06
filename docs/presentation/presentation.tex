@@ -68,7 +68,7 @@
 \title{Estimation of Change in \\ Population of municipalities in PR}
 
 \author[Ouslan]{\small{
-Alejandro M. Ouslan \& Tatiana Crespo}}
+Alejandro M. Ouslan \& Tatiana E. Crespo}}
 
 \institute[UPRM]{University of Puerto Rico, Mayagüez}
 \titlegraphic{\includegraphics[width=2cm]{UPR.png}}
@@ -161,12 +161,114 @@ Alejandro M. Ouslan \& Tatiana Crespo}}
 
 \end{frame}
 
+\begin{frame}{Methodology}
+	The variables to consider for our simple regression model are:
+	\begin{itemize}
+		\item \textbf{Independent variable $X$:} the years for which we have population estimates for Puerto Rico
+		\item \textbf{Dependent variable $Y$:} the total population for the 78 municipalities of Puerto Rico for each year
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Methodology}
+
+	The simple linear regression model to be used is the following:
+
+	\[
+		Y_i = \beta_0 + \beta_1 X_i + \epsilon_i
+	\]
+
+	where:
+	\begin{itemize}
+		\item $Y_i = $ population in year $i$
+		\item $X_i = $ year
+		\item $\beta_0 = $ intercept
+		\item $\beta_1 = $ population change rate
+		\item $\epsilon_i = $ random error
+	\end{itemize}
+
+
+\end{frame}
 
 %------------------------------------------------
 \section{Results}
 %------------------------------------------------
 
 \begin{frame}{Results}
+	\begin{itemize}
+		\item A \textbf{classical linear regression} was performed with a significance level of $\alpha = 0.05$, from which we obtained a population change rate of $-210.52$, indicating that the total population decreases each year.
+		\item However, upon reviewing the p-value of this test (0.540), we realized that our findings are not statistically significant.
+		\item Therefore, based on classical inference, there is insufficient evidence to determine that there is a drastic change in the population decrease over time in this model.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{OLS Regression Results}
+	\centering
+
+	\textbf{Model Summary}
+
+	\begin{tabular}{lc}
+		\hline
+		Observations       & 1014   \\
+		R-squared          & 0.000  \\
+		Adj. R-squared     & -0.001 \\
+		F-statistic        & 0.3759 \\
+		Prob (F-statistic) & 0.540  \\
+		Durbin-Watson      & 1.935  \\
+		\hline
+	\end{tabular}
+
+	\vspace{0.5cm}
+
+	\textbf{Coefficients}
+
+	\begin{tabular}{lcccc}
+		\hline
+		Variable  & Coef               & Std. Err           & t      & p-value \\
+		\hline
+		Intercept & $4.61\times10^{5}$ & $6.93\times10^{5}$ & 0.666  & 0.506   \\
+		year      & -210.52            & 343.34             & -0.613 & 0.540   \\
+		\hline
+	\end{tabular}
+
+\end{frame}
+
+
+\begin{frame}{Results}
+	\begin{itemize}
+		\item Regarding the \textbf{Bayesian regression}, we obtained that the mean of the posterior distribution of the coefficient corresponding to the years is $-211.04$. This indicates that the population decreases per year.
+		\item Furthermore, reviewing the Bayesian confidence intervals, it was found that there is a 94\% probability that the year effect is between -822.54 and 444.45. Thus, not statistically significative.
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Bayesian Regression Results}
+	\centering
+
+	\begin{tabular}{lccc}
+		\hline
+		Parameter & Mean      & SD        & 94\% HDI                 \\
+		\hline
+		Intercept & 462101.05 & 690822.24 & [-866169.01, 1689104.77] \\
+		year      & -211.04   & 342.49    & [-822.54, 444.45]        \\
+		$\sigma$  & 40949.25  & 931.07    & [39207.54, 42669.78]     \\
+		\hline
+	\end{tabular}
+
+	\vspace{0.4cm}
+
+	\footnotesize
+	Effective sample size ($ESS_{bulk}$) $\approx$ 5354--6805, $\hat{R}=1.00$ (good convergence).
+
+\end{frame}
+
+
+\begin{frame}{Results}
+	\begin{itemize}
+		\item Regarding the MCMC chains, the chains appear to blend quite well, and the R-squared value is approximately 1, suggesting that the model converged correctly.
+
+	\end{itemize}
 
 \end{frame}
 
@@ -176,24 +278,31 @@ Alejandro M. Ouslan \& Tatiana Crespo}}
 
 \begin{frame}{Densities}
 
-
-\end{frame}
-
-%------------------------------------------------
-\subsection{Credibility Interval}
-%------------------------------------------------
-
-\begin{frame}{Credibility interval}
-
-
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{assets/density.png}
+	\end{figure}
 \end{frame}
 
 %------------------------------------------------
 \subsection{Confidance Interval}
 %------------------------------------------------
 
-\begin{frame}{Confidance Interval}
+\begin{frame}{Confidance interval}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{assets/confidence.png}
+	\end{figure}
+\end{frame}
+%------------------------------------------------
+\subsection{Credibility Interval}
+%------------------------------------------------
 
+\begin{frame}{Credibility Interval}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{assets/credibility intervals.png}
+	\end{figure}
 \end{frame}
 
 %------------------------------------------------
@@ -201,8 +310,10 @@ Alejandro M. Ouslan \& Tatiana Crespo}}
 %------------------------------------------------
 
 \begin{frame}{Distribution}
-
-
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.4\textwidth]{assets/trace.png}
+	\end{figure}
 \end{frame}
 
 
