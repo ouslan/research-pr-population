@@ -24,7 +24,7 @@
 
 	\vspace{1.5cm}
 
-	\textbf{Alejandro M. Ouslan \& Tatiana Crespo}
+	\textbf{Alejandro M. Ouslan \& Tatiana E. Crespo}
 
 	\vfill
 
@@ -49,60 +49,60 @@
 \section{Introduction}
 %------------------------------------------------
 
-Changes in demographics are a highly studied topic and are of great interest to governments.
-Understanding demographic characteristics is particularly important for regional governments,
-such as the municipalities in Puerto Rico. Anticipating how the population will change in
-the coming years is fundamental for planning infrastructure projects and public investments,
-especially in areas experiencing population growth, decline, or aging populations.
+Changes in demographics are a highly studied topic and are of great interest to governments. Understanding demographic characteristics is particularly important for regional governments, such as the municipalities in Puerto Rico. Anticipating how the population will change in the coming years is fundamental for planning infrastructure projects and public investments, especially in areas experiencing population growth, decline, or aging populations.
+
+Classical inference methods, such as classical linear regression, are frequently used to study these trends. However, applying Bayesian inference methods offers significant advantages. This is due to the ability to incorporate prior information and provide complete probability distributions for the estimated parameters.
+
+Based on these arguments, we are led to ask the following questions: How has the population of a municipality in Puerto Rico changed over time? Therefore, through this project, we will use simple linear regression with a Bayesian approach to estimate and analyze population change in Puerto Rican municipalities over time.
+
 
 
 %------------------------------------------------
 \section{Methodology}
 %------------------------------------------------
+\subsection{Data}
 This research uses data from the American Community Survey 5-year estimates (ACS)
 produced by the U.S. Census Bureau. The dataset includes population estimates from
 2011 to 2023 for all 78 municipalities in Puerto Rico.
 
+The variables to consider for our simple regression model are: the years for which we have population estimates for Puerto Rico (independent variable X) and the total population for the 78 municipalities of Puerto Rico for each year (dependent variable Y).
 
-%------------------------------------------------
-\section{Resultados}
-%------------------------------------------------
+\subsection{Regression Model}
 
+The simple linear regression model to be used is the following:
 
+\[
+	Y_i = \beta_0 + \beta_1 X_i + \epsilon_i
+\]
 
+where:
+\begin{itemize}
+	\item $Y_i = $ population in year $i$
+	\item $X_i = $ year
+	\item $\beta_0 = $ intercept
+	\item $\beta_1 = $ population change rate
+	\item $\epsilon_i = $ random error
+\end{itemize}
 
-%------------------------------------------------
-\subsection{Densities}
-%------------------------------------------------
+\subsection{Bayesian Approach}
 
-
-
-
-%------------------------------------------------
-\subsection{Credibility Interval}
-%------------------------------------------------
-
-
-%------------------------------------------------
-\subsection{Confidence Interval}
-%------------------------------------------------
-
+Due to the nature of the Bayesian approach, we will use non-informative prior distributions. However, we will use the Markov Chain Monte Carlo method to obtain the posterior distributions of the data. This process will be executed in Python software.
 
 
 %------------------------------------------------
-\subsection{Distribution}
+\section{Results}
 %------------------------------------------------
 
+A classical linear regression was performed with a significance level of $\alpha = 0.05$, from which we obtained a population change rate of $-210.52$, indicating that the total population decreases each year. However, upon reviewing the p-value of this test (0.540), we realized that our findings are not statistically significant. Therefore, based on classical inference, there is insufficient evidence to determine that there is a drastic change in the population decrease over time in this model. Moreover, since the adjusted R-squared is $-0.001$ this indicates that the model with the variable time might not be the best to explain the changes in populations.
 
-
+Regarding the Bayesian regression, we obtained that the mean of the posterior distribution of the coefficient corresponding to the years is $-211.04$. This indicates that the population decreases per year. Furthermore, reviewing the Bayesian confidence intervals, it was found that there is a 94\% probability that the year effect is between -822.54 and 444.45. According to the credibility intervals, with 94\% confidence, the expected coefficient for years is between -500.00 and 50.00. Because this interval includes zero, there is no statistically significative probability that the effect of years is negative. Regarding the MCMC chains, the chains appear to blend quite well, and the R-squared value is approximately 1, suggesting that the model converged correctly. Although both classical and Bayesian inference essentially conclude that the population rate of change and the model do not answer our question, the Bayesian inference method is more robust. This is due to the fact that the Bayesian method uses prior information to perform the analyses. This allows the model to be normalized, reduces model identification problems, and makes the estimators less unstable.
 
 
 %------------------------------------------------
 \section{Predicciones}
 %------------------------------------------------
 
-Due to the lack of statistical significance in the results regarding changes over time
-in municipal population, no meaningful recommendations can be made regarding the problem.
+Due to the lack of statistical significance in the results regarding changes over time in municipal population, no meaningful recommendations can be made regarding the problem.
 
 
 
